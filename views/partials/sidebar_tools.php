@@ -1,1 +1,0 @@
-<li><a class="sidebar_icon" href="<?= base_url() ?>home/profiles"><img src="<?= $this_module_assets ?>profiles_24.png"><span>Profiles</span></a></li>
