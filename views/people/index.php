@@ -1,27 +1,9 @@
-<div class="vcard">
-<div id="profile_image">
-	<img class="photo" src="<?= $image ?>" border="0">
-</div>
+<h2>People</h2>
 
-<div id="profile_info">
-	<ul>
-		<li><h1 class="fn"><?= $name ?></h1></li>
-		<li><h3>@<?= $username ?></h3></li>
-		<?= display_value("li", "", "", $company); ?>
-		<?= display_value("li", "", "", $location); ?>
-		<?= display_value("li", "", "", display_link("", "", $url, $url)); ?>		
-		<?= display_value("li", "", "", $bio); ?>
-	</ul>	
-</div>
-<div class="clear"></div>
-<div class="norm_separator"></div>
+<p>This will be a directory of people on the given site</p>
 
-<ol id="profile_feed">
-	<?= $timeline_view ?>
-</ol>
-<div class="clear"></div>
-
-<?php if ($timeline_count > 8): ?>
-<input type="button" id="profile_feed_see_more" value="See More">
-<?php endif; ?>
-</div>
+<ul>
+<?php if ($users): foreach ($users as $user): ?>
+	<li><a href="<?= base_url().'people/'.$user->username ?>"><?= $user->name ?></a></li>
+<?php endforeach; endif; ?>
+</ul>

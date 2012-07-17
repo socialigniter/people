@@ -12,9 +12,23 @@ class People extends Site_Controller
 {
     function __construct()
     {
-        parent::__construct(); 
+        parent::__construct();
 
-		if (!$this->uri->segment(2) || (config_item('users_profile') != 'TRUE')) redirect(base_url());	
+		if (config_item('people_enabled') != 'TRUE') redirect(base_url());
+	}
+
+	function index()
+	{
+		$this->data['users']		= $this->social_auth->get_users('active', 1);
+ 		$this->data['page_title'] 	= "People";
+	
+		$this->render('wide');	
+	}
+	
+ 	function profile()
+ 	{
+		if (!$this->uri->segment(2)) redirect(base_url());	 	
+ 	
 		$timeline_view = null;
 		$this->user = $this->social_auth->get_user('username', $this->uri->segment(2), TRUE); 
  	
@@ -117,12 +131,8 @@ class People extends Site_Controller
 		}
 
 		$this->data['timeline_view'] 	= $timeline_view;
- 		$this->data['timeline_count']	= $timeline_count;
-	}
-	
- 	function index()
- 	{ 		
- 		$this->data['page_title'] = $this->data['name']."'s profile";
+ 		$this->data['timeline_count']	= $timeline_count; 	 	
+ 		$this->data['page_title'] 		= $this->data['name']."'s profile";
 		$this->render('profile');
  	}
 

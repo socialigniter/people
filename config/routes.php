@@ -8,4 +8,9 @@
 *
 * Description: 	URI Routes for People for Social Igniter 
 */
-$route['people'] 			= 'people';
+
+$route['people/:any/image'] 				= 'people/image';
+$route['people/:any/add_friend/:any']		= 'people/add_friend';
+$route['people/:any/feed']					= 'people/feed';
+$route['people/:any'] 						= 'people/profile';
+$route['people'] 							= 'people/index';
