@@ -19,6 +19,6 @@ $config['people_widgets'][] = array(
 		'multiple'	=> 'FALSE',
 		'order'		=> '1',
 		'title'		=> 'New People',
-		'content'	=> 'Check out the most recent people who have joined this site
+		'content'	=> 'Check out the most recent people who have joined this site'
 	)
 );
