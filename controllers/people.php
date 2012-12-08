@@ -77,9 +77,10 @@ class People extends Site_Controller
 	 		$this->data['message_url'] 		= base_url().'api/message/send/id/'.$this->user->user_id;
 	 		
 			// Sidebar
-			$this->data['sidebar_profile'] = $this->load->view(config_item('site_theme').'/partials/sidebar_profile.php', $this->data, true);	
+			$this->data['sidebar_profile'] = $this->load->view('../modules/people/views/partials/sidebar_profile.php', $this->data, true);	
 			
-			// Timeline 		
+			// Timeline
+			/*		
 			$timeline 							= $this->social_igniter->get_timeline_user($this->user->user_id, 8);
 			$timeline_view 						= NULL;	
 			$timeline_count						= 1;
@@ -123,17 +124,18 @@ class People extends Site_Controller
 		 	else
 		 	{
 		 		$timeline_view = '<li>Nothing to show from anyone!</li>';
-	 		}		
+	 		}
+	 		*/		
 		}
 		else
 		{
 			redirect(404);
 		}
 
-		$this->data['timeline_view'] 	= $timeline_view;
- 		$this->data['timeline_count']	= $timeline_count; 	 	
+		$this->data['timeline_view'] 	= 'A users timeline will go here';//$timeline_view;
+ 		$this->data['timeline_count']	= '';//$timeline_count; 	 	
  		$this->data['page_title'] 		= $this->data['name']."'s profile";
-		$this->render('profile');
+		$this->render();
  	}
 
  	function feed()
